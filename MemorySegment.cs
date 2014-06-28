@@ -54,7 +54,7 @@ namespace atpgm.avrxml
             }
             set
             {
-                Size = UInt32.Parse(value.Replace("0x",""), NumberStyles.HexNumber);
+                PageSize = UInt32.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
             }
         }
 
@@ -76,9 +76,9 @@ namespace atpgm.avrxml
 
 
         [XmlAttribute("type")]
-        public string type = "";
+        public string Type = "";
 
         [XmlAttribute("rw")]
-        public string rw = "";
+        public string RW = "";
     }
 }

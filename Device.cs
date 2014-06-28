@@ -72,7 +72,7 @@ namespace atpgm.avrxml
             {
                 try
                 {
-                    return (from a in AddressSpaces from b in a.MemorySegments where b.Name == "FLASH" select b.Size).Single();
+                    return (from a in AddressSpaces from b in a.MemorySegments where b.Type == "flash" select b.Size).First();
                 }
                 catch
                 {
@@ -90,7 +90,7 @@ namespace atpgm.avrxml
             {
                 try
                 {
-                    return (from a in AddressSpaces from b in a.MemorySegments where b.Name == "SRAM" select b.Size).Single();
+                    return (from a in AddressSpaces from b in a.MemorySegments where b.Name == "IRAM" || b.Type == "ram" select b.Size).First();
                 }
                 catch
                 {
