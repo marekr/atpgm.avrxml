@@ -90,7 +90,7 @@ namespace atpgm.avrxml
             {
                 try
                 {
-                    return (from a in AddressSpaces from b in a.MemorySegments where b.Name == "IRAM" || b.Type == "ram" select b.Size).First();
+                    return (from a in AddressSpaces from b in a.MemorySegments where b.External == false && b.Type == "ram" select b.Size).First();
                 }
                 catch
                 {

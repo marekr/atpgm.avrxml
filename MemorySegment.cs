@@ -74,6 +74,37 @@ namespace atpgm.avrxml
             }
         }
 
+        [XmlIgnore]
+        public bool External = false;
+
+        [XmlAttribute("external")]
+        public string ExternalAsString
+        {
+            get
+            {
+                return External ? "1" : "0";
+            }
+            set
+            {
+                External = Convert.ToBoolean(Convert.ToInt16(value));
+            }
+        }
+
+        [XmlIgnore]
+        public bool Exec = false;
+
+        [XmlAttribute("exec")]
+        public string ExecAsString
+        {
+            get
+            {
+                return Exec ? "1" : "0";
+            }
+            set
+            {
+                Exec = Convert.ToBoolean(Convert.ToInt16(value));
+            }
+        }
 
         [XmlAttribute("type")]
         public string Type = "";
