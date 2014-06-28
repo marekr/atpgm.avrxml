@@ -58,5 +58,20 @@ namespace atpgm.avrxml
 
         [XmlElement("instance")]
         public Instance Instance;
+
+        /// <summary>
+        /// Attempt to find an value group by name
+        /// </summary>
+        public ValueGroup GetValueGroup(string name)
+        {
+            try
+            {
+                return (from a in ValueGroups where a.Name == name select a).Single();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

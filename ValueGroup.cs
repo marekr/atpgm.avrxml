@@ -40,5 +40,20 @@ namespace atpgm.avrxml
 
         [XmlElement("value")]
         public List<Value> Values { get; set; }
+
+        /// <summary>
+        /// Attempt to find value by name
+        /// </summary>
+        public Value GetValue(string name)
+        {
+            try
+            {
+                return (from a in Values where a.Name == name select a).Single();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

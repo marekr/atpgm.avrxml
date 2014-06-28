@@ -57,5 +57,12 @@ namespace atpgm.avrxml
 
         [XmlAttribute("caption")]
         public string Caption = "";
+
+        /// <summary>
+        /// Name of value group that is defined within the module
+        /// that our parent register/register-group is part of
+        /// </summary>
+        [XmlAttribute("values")]
+        public string Values = "";
     }
 }

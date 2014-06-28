@@ -62,5 +62,20 @@ namespace atpgm.avrxml
 
             return deviceFile;
         }
+
+        /// <summary>
+        /// Attempt to find module by name
+        /// </summary>
+        public Module GetModule(string name)
+        {
+            try
+            {
+                return (from module in Modules where module.Name == name select module).Single();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

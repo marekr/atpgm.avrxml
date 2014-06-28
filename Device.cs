@@ -98,5 +98,23 @@ namespace atpgm.avrxml
                 }
             }
         }
+
+        /// <summary>
+        /// Size of EEPROM memory segment. This memory segment does not exist on all devices of course.
+        /// </summary>
+        public UInt64 EEPROMSize
+        {
+            get
+            {
+                try
+                {
+                    return (from a in AddressSpaces from b in a.MemorySegments where b.Type == "eeprom" select b.Size).First();
+                }
+                catch
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }
