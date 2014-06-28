@@ -29,29 +29,69 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using System.Globalization;
 
 namespace atpgm.avrxml
 {
     [Serializable()]
     public class Register
     {
+        [XmlIgnore]
+        public UInt32 Offset = 0;
+
         [XmlAttribute("offset")]
-        public string offset = "";
+        public string OffsetAsString
+        {
+            get
+            {
+                return "0x" + Offset.ToString("X");
+            }
+            set
+            {
+                Offset = UInt32.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
+
+        [XmlIgnore]
+        public UInt32 Size = 0;
 
         [XmlAttribute("size")]
-        public string size = "";
+        public string SizeAsString
+        {
+            get
+            {
+                return "0x" + Size.ToString("X");
+            }
+            set
+            {
+                Size = UInt32.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
 
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
+
+        [XmlIgnore]
+        public UInt32 InitVal = 0;
 
         [XmlAttribute("initval")]
-        public string initval = "";
+        public string InitValAsString
+        {
+            get
+            {
+                return "0x" + InitVal.ToString("X");
+            }
+            set
+            {
+                InitVal = UInt32.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
 
         [XmlAttribute("rw")]
-        public string rw = "";
+        public string RW = "";
 
         [XmlAttribute("caption")]
-        public string caption = "";
+        public string Caption = "";
 
         [XmlElement("bitfield")]
         public List<Bitfield> Bitfields { get; set; }

@@ -36,7 +36,7 @@ namespace atpgm.avrxml
     public class ValueGroup
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlElement("value")]
         public List<Value> Values { get; set; }

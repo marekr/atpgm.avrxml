@@ -36,26 +36,25 @@ namespace atpgm.avrxml
     public class Module
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlAttribute("name2")]
-        public string name2 = "";
+        public string Name2 = "";
 
         [XmlAttribute("id")]
-        public string id = "";
+        public string ID = "";
 
         [XmlAttribute("version")]
-        public string version = "";
+        public string Version = "";
 
         [XmlAttribute("caption")]
-        public string caption = "";
+        public string Caption = "";
 
         [XmlElement("register-group")]
         public List<RegisterGroup> RegisterGroups { get; set; }
 
         [XmlElement("value-group")]
         public List<ValueGroup> ValueGroups { get; set; }
-
 
         [XmlElement("instance")]
         public Instance Instance;

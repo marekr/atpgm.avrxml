@@ -36,15 +36,15 @@ namespace atpgm.avrxml
     public class Signal
     {
         [XmlAttribute("group")]
-        public string group = "";
+        public string Group = "";
 
         [XmlAttribute("index")]
-        public string index = "";
+        public string Index = "";
 
         [XmlAttribute("function")]
-        public string function = "";
+        public string Function = "";
 
         [XmlAttribute("pad")]
-        public string pad = "";
+        public string Pad = "";
     }
 }

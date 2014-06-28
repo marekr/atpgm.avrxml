@@ -28,6 +28,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Globalization;
 using System.Xml.Serialization;
 
 namespace atpgm.avrxml
@@ -35,13 +36,26 @@ namespace atpgm.avrxml
     [Serializable()]
     public class Bitfield
     {
+        [XmlIgnore]
+        public UInt32 Mask = 0;
+
         [XmlAttribute("mask")]
-        public string mask = "";
+        public string MaskAsString
+        {
+            get
+            {
+                return "0x" + Mask.ToString("X");
+            }
+            set
+            {
+                Mask = UInt32.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
 
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlAttribute("caption")]
-        public string caption = "";
+        public string Caption = "";
     }
 }

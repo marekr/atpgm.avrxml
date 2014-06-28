@@ -36,7 +36,7 @@ namespace atpgm.avrxml
     public class PropertyGroup
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlElement("property")]
         public List<Property> Properties { get; set; }

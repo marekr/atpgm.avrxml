@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using System.Globalization;
 
 namespace atpgm.avrxml
 {
@@ -36,13 +37,43 @@ namespace atpgm.avrxml
     public class MemorySegment
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlAttribute("start")]
         public string start = "";
 
+        [XmlIgnore]
+        public UInt32 PageSize;
+
+        [XmlAttribute("pagesize")]
+        public string PageSizeAsString
+        {
+            get
+            {
+                return "0x"+PageSize.ToString("X");
+            }
+            set
+            {
+                Size = UInt32.Parse(value.Replace("0x",""), NumberStyles.HexNumber);
+            }
+        }
+
+        [XmlIgnore]
+        public UInt64 Size;
+
         [XmlAttribute("size")]
-        public string size = "";
+        public string SizeAsString
+        {
+            get
+            {
+                return "0x"+Size.ToString("X");
+            }
+            set
+            {
+                Size = UInt64.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
+
 
         [XmlAttribute("type")]
         public string type = "";

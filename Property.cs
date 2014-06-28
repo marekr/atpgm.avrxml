@@ -36,9 +36,9 @@ namespace atpgm.avrxml
     public class Property
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlAttribute("value")]
-        public string value = "";
+        public string Value = "";
     }
 }

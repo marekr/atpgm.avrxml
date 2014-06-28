@@ -36,7 +36,8 @@ namespace atpgm.avrxml
     public class Instance
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
+
 
         [XmlElement("register-group")]
         public RegisterGroup RegisterGroup = null;

@@ -36,35 +36,67 @@ namespace atpgm.avrxml
     public class Device
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlAttribute("architecture")]
-        public string architecture = "";
+        public string Architecture = "";
 
         [XmlAttribute("family")]
-        public string family = "";
+        public string Family = "";
 
         [XmlAttribute("series")]
-        public string series = "";
-
+        public string Series = "";
 
         [XmlArray("address-spaces")]
         [XmlArrayItem("address-space", typeof(AddressSpace))]
         public AddressSpace[] AddressSpaces { get; set; }
 
-
         [XmlArray("interfaces")]
         [XmlArrayItem("interface", typeof(Interface))]
         public Interface[] Interfaces { get; set; }
-
 
         [XmlArray("property-groups")]
         [XmlArrayItem("property-group", typeof(PropertyGroup))]
         public PropertyGroup[] PropertyGroups { get; set; }
 
-
         [XmlArray("peripherals")]
         [XmlArrayItem("module", typeof(Module))]
         public Module[] Peripherals { get; set; }
+
+        /// <summary>
+        /// Size of FLASH memory segment
+        /// </summary>
+        public UInt64 FlashSize
+        {
+            get
+            {
+                try
+                {
+                    return (from a in AddressSpaces from b in a.MemorySegments where b.Name == "FLASH" select b.Size).Single();
+                }
+                catch
+                {
+                    return 0;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Size of SRAM memory segment
+        /// </summary>
+        public UInt64 SRAMSize
+        {
+            get
+            {
+                try
+                {
+                    return (from a in AddressSpaces from b in a.MemorySegments where b.Name == "SRAM" select b.Size).Single();
+                }
+                catch
+                {
+                    return 0;
+                }
+            }
+        }
     }
 }

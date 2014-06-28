@@ -36,24 +36,24 @@ namespace atpgm.avrxml
     public class Variant
     {
         [XmlAttribute("ordercode")]
-        public string ordercode = "";
+        public string OrderCode = "";
 
         [XmlAttribute("package")]
-        public string package = "";
+        public string Package = "";
 
         [XmlAttribute("speedmax")]
-        public string speedmax = "";
+        public string SpeedMax = "";
 
         [XmlAttribute("tempmax")]
-        public string tempmax = "";
+        public string TempMax = "";
 
         [XmlAttribute("tempmin")]
-        public string tempmin = "";
+        public string TempMin = "";
 
         [XmlAttribute("vccmax")]
-        public string vccmax = "";
+        public string VCCMax = "";
 
         [XmlAttribute("vccmin")]
-        public string vccmin = "";
+        public string VCCMin = "";
     }
 }

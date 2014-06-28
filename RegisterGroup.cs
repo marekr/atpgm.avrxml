@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using System.Globalization;
 
 namespace atpgm.avrxml
 {
@@ -36,7 +37,29 @@ namespace atpgm.avrxml
     public class RegisterGroup
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
+
+        [XmlAttribute("name-in-module")]
+        public string NameInModule = "";
+
+        [XmlAttribute("address-space")]
+        public string AddressSpace = "";
+
+        [XmlIgnore]
+        public UInt32 Offset = 0;
+
+        [XmlAttribute("offset")]
+        public string OffsetAsString
+        {
+            get
+            {
+                return "0x" + Offset.ToString("X");
+            }
+            set
+            {
+                Offset = UInt32.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
 
         [XmlElement("register")]
         public List<Register> Registers { get; set; }

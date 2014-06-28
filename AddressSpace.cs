@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using System.Globalization;
 
 namespace atpgm.avrxml
 {
@@ -36,16 +37,42 @@ namespace atpgm.avrxml
     public class AddressSpace
     {
         [XmlAttribute("id")]
-        public string id = "";
+        public string ID = "";
+
+        [XmlIgnore]
+        public UInt64 Start = 0;
 
         [XmlAttribute("start")]
-        public string start = "";
+        public string StartAsString
+        {
+            get
+            {
+                return "0x" + Start.ToString("X");
+            }
+            set
+            {
+                Start = UInt64.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
+
+        [XmlIgnore]
+        public UInt64 Size = 0;
 
         [XmlAttribute("size")]
-        public string size = "";
+        public string SizeAsString
+        {
+            get
+            {
+                return "0x" + Size.ToString("X");
+            }
+            set
+            {
+                Size = UInt64.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
 
         [XmlAttribute("endianness")]
-        public string endianness = "";
+        public string Endianness = "";
 
         [XmlElement("memory-segment")]
         public List<MemorySegment> MemorySegments { get; set; }

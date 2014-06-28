@@ -36,12 +36,12 @@ namespace atpgm.avrxml
     public class Value
     {
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
 
         [XmlAttribute("caption")]
-        public string caption = "";
+        public string Caption = "";
 
         [XmlAttribute("value")]
-        public string value = "";
+        public string ValueString = "";
     }
 }
