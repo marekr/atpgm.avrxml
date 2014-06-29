@@ -43,5 +43,10 @@ namespace atpgm.avrxml
 
         [XmlAttribute("value")]
         public string ValueString = "";
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
