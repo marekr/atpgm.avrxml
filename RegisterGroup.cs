@@ -39,6 +39,10 @@ namespace atpgm.avrxml
         [XmlAttribute("name")]
         public string Name = "";
 
+        /// <summary>
+        /// Name of the matching module 
+        /// in the "modules" section of the device file
+        /// </summary>
         [XmlAttribute("name-in-module")]
         public string NameInModule = "";
 
