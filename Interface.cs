@@ -36,9 +36,14 @@ namespace atpgm.avrxml
     public class Interface
     {
         [XmlAttribute("type")]
-        public string type = "";
+        public string Type = "";
 
         [XmlAttribute("name")]
-        public string name = "";
+        public string Name = "";
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
