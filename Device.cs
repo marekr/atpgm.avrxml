@@ -63,6 +63,22 @@ namespace atpgm.avrxml
         [XmlArrayItem("module", typeof(Module))]
         public Module[] Peripherals { get; set; }
 
+
+        /// <summary>
+        /// Attempt to find Peripheral by name
+        /// </summary>
+        public Module GetPeripheral(string name)
+        {
+            try
+            {
+                return (from a in Peripherals where a.Name == name select a).Single();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         /// <summary>
         /// Size of FLASH memory segment
         /// </summary>

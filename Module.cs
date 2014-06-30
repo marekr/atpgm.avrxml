@@ -57,7 +57,8 @@ namespace atpgm.avrxml
         public List<ValueGroup> ValueGroups { get; set; }
 
         [XmlElement("instance")]
-        public Instance Instance;
+        public List<Instance> Instances { get; set; }
+
 
         /// <summary>
         /// Attempt to find an value group by name

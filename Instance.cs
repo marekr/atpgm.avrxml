@@ -38,9 +38,8 @@ namespace atpgm.avrxml
         [XmlAttribute("name")]
         public string Name = "";
 
-
         [XmlElement("register-group")]
-        public RegisterGroup RegisterGroup = null;
+        public List<RegisterGroup> RegisterGroups { get; set; }
 
         [XmlArray("signals")]
         [XmlArrayItem("signal", typeof(Signal))]
