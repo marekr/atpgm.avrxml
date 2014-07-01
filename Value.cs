@@ -29,6 +29,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using System.Globalization;
 
 namespace atpgm.avrxml
 {
@@ -42,7 +43,19 @@ namespace atpgm.avrxml
         public string Caption = "";
 
         [XmlAttribute("value")]
-        public string ValueString = "";
+        public string ValueString
+        {
+            get
+            {
+                return "0x" + ValueUInt64.ToString("X");
+            }
+            set
+            {
+                ValueUInt64 = UInt64.Parse(value.Replace("0x", ""), NumberStyles.HexNumber);
+            }
+        }
+
+        public UInt64 ValueUInt64 = 0;
 
         public override string ToString()
         {
