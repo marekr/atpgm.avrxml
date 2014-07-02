@@ -7,8 +7,8 @@
     <ProjectGuid>{C3C103D0-4673-4BD7-911B-9593A5EC4524}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClassLibrary1</RootNamespace>
-    <AssemblyName>ClassLibrary1</AssemblyName>
+    <RootNamespace>atpgm.avrxml</RootNamespace>
+    <AssemblyName>atpgm.avrxml</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
